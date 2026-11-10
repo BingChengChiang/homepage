@@ -9,11 +9,12 @@ sizeSelect.value=Object.hasOwn(TERMINAL_SIZES,requestedSize)?requestedSize:DEFAU
 // Maintenance previews replay one official event. Normal URLs use original random selection.
 const preview=new URLSearchParams(location.search).get('preview');
 const previewFn=preview==='monster'?'add_monster':preview==='fishhook'?'add_fishhook':null;
-const colors={k:'#000000',r:'#aa0000',g:'#00aa00',y:'#aa5500',b:'#0000aa',m:'#aa00aa',c:'#00aaaa',w:'#aaaaaa',K:'#555555',R:'#ff5555',G:'#55ff55',Y:'#ffff55',B:'#5555ff',M:'#ff55ff',C:'#55ffff',W:'#ffffff'};
+const terminalBackground=getComputedStyle(document.documentElement).getPropertyValue('--terminal-background').trim()||'#1e1e1e';
+const colors={k:'#000000',r:'#cd3131',g:'#0dbc79',y:'#e5e510',b:'#2472c8',m:'#bc3fbc',c:'#11a8cd',w:'#cccccc',K:'#808080',R:'#f14c4c',G:'#23d18b',Y:'#f5f543',B:'#3b8eea',M:'#d670d6',C:'#29b8db',W:'#ffffff'};
 let aquarium,width,height,timer=null,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,stopped=false;
 function resizeCanvas(){const r=canvas.getBoundingClientRect();width=r.width;height=r.height;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);if(aquarium)render(aquarium.screen());}
 function redraw(){resizeCanvas();const {cols,rows}=terminalSize(sizeSelect.value);aquarium=new Aquarium(cols,rows);if(previewFn)aquarium.random_object=()=>aquarium[previewFn]();aquarium.reset();stopped=false;render(aquarium.screen());sync();}
-function render(screen){const cw=width/screen.width,ch=height/screen.height;ctx.fillStyle='#000';ctx.fillRect(0,0,width,height);ctx.textBaseline='top';ctx.font=`${Math.min(ch-1,cw/.6001)}px "Courier New",monospace`;for(let y=0;y<screen.height;y++)for(let x=0;x<screen.width;x++){const i=y*screen.width+x,c=screen.chars[i];if(c===' ')continue;ctx.fillStyle=colors[screen.colors[i]]||colors.w;ctx.fillText(c,x*cw,y*ch);}}
+function render(screen){const cw=width/screen.width,ch=height/screen.height;ctx.fillStyle=terminalBackground;ctx.fillRect(0,0,width,height);ctx.textBaseline='top';ctx.font=`${Math.min(ch-1,cw/.6001)}px "Courier New",monospace`;for(let y=0;y<screen.height;y++)for(let x=0;x<screen.width;x++){const i=y*screen.width+x,c=screen.chars[i];if(c===' ')continue;ctx.fillStyle=colors[screen.colors[i]]||colors.w;ctx.fillText(c,x*cw,y*ch);}}
 function loop(){timer=null;if(stopped)return;if(!paused)render(aquarium.animate());timer=setTimeout(loop,100);}
 function sync(){pauseButton.textContent=paused?'p · resume':'p · pause';pauseButton.setAttribute('aria-pressed',String(paused));state.textContent=(previewFn?' / preview: '+preview:'')+(stopped?' / stopped':paused?' / paused':'');if(stopped){if(timer)clearTimeout(timer);timer=null;}else if(!timer)timer=setTimeout(loop,100);}
 function key(value){if(value==='p'){paused=!paused;sync();}else if(value==='r')redraw();else if(value==='q'){stopped=true;sync();}}

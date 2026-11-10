@@ -11,6 +11,10 @@ GitHub Pages 發布 `dist/`。每次推送 main，`.github/workflows/pages.yml` 
 
 首次啟用：repository → Settings → Pages → Build and deployment → Source 選 GitHub Actions。之後通常不用再改這項設定。
 
+## 配色
+
+首頁使用深色底 #111315；魚缸使用 VS Code 風格深灰 #1e1e1e，控制列 #252526。首頁顏色在 dist/style.css 的 CSS variables，終端色彩在 terminal.css，ANSI 色盤映射在 browser.js。這些都只改顯示，不改 engine.js 的官方模擬規則。
+
 ## 日常修改
 
 - `dist/profile.js`：姓名、自介、專案與連結。
