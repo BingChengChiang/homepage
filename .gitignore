@@ -3,5 +3,7 @@ node_modules/
 .sites-checkout/
 .wrangler/
 *.tar.gz
+!vendor/Term-Animation-2.6.tar.gz
+!vendor/asciiquarium/official-1.1.tar.gz
 *.zip
 .env*

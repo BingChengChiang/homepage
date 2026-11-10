@@ -8,7 +8,7 @@ const requestedSize=new URLSearchParams(location.search).get('size');
 sizeSelect.value=Object.hasOwn(TERMINAL_SIZES,requestedSize)?requestedSize:DEFAULT_SIZE;
 // Maintenance previews select only the first official event. Normal URLs use reset().
 const preview=new URLSearchParams(location.search).get('preview');
-const previewFn={monster:'add_monster',fishhook:'add_fishhook'}[preview];
+const previewFn=preview==='monster'?'add_monster':preview==='fishhook'?'add_fishhook':null;
 const colors={k:'#000000',r:'#aa0000',g:'#00aa00',y:'#aa5500',b:'#0000aa',m:'#aa00aa',c:'#00aaaa',w:'#aaaaaa',K:'#555555',R:'#ff5555',G:'#55ff55',Y:'#ffff55',B:'#5555ff',M:'#ff55ff',C:'#55ffff',W:'#ffffff'};
 let aquarium,width,height,timer=null,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,stopped=false;
 function resizeCanvas(){const r=canvas.getBoundingClientRect();width=r.width;height=r.height;const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);if(aquarium)render(aquarium.screen());}
