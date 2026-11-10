@@ -29,7 +29,7 @@ GitHub Pages 發布 `dist/`。每次推送 main，`.github/workflows/pages.yml` 
 - 魚鉤：https://bingchengchiang.github.io/homepage/asciiquarium/index.html?preview=fishhook
 - 驗證入口：https://bingchengchiang.github.io/homepage/asciiquarium/verify.html
 
-這些連結只指定第一個官方事件，使用相同的官方事件函式、圖形、速度與碰撞；按 r 可重新開始該預覽。第一個事件結束後恢復官方隨機選擇。正常首頁沒有 preview 參數，完全沿用原版九種事件抽選規則。
+這些維護用連結持續重播指定事件，使用相同的官方事件函式、圖形、速度與碰撞；按 r 可重新開始該預覽。正常首頁沒有 preview 參數，完全沿用原版九種事件抽選規則。
 
 原版一次只播放一個主要特殊事件，每次選海蛇或魚鉤各約 1/9，並非每隔固定秒數生成。八組各十五分鐘的模擬中，海蛇出現 46 次、魚鉤 54 次；單一案例首次海蛇等了約 8 分 47 秒。這不是正式站的統計，也不保證訪客一定在某個時間內看見。
 
