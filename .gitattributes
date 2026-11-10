@@ -1,0 +1,4 @@
+vendor/** -text
+dist/asciiquarium/upstream.pl -text
+dist/asciiquarium/Term-Animation.pm -text
+dist/asciiquarium/Entity.pm -text

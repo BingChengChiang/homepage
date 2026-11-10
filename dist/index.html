@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A hardware engineer's personal corner of the internet, with a little ASCII ocean.">
+  <meta name="theme-color" content="#f3f2e9">
+  <title>A little corner of the internet</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="profile.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <header><a class="home" href="#" aria-label="Home"><span class="fish-mark">&gt;&lt;((°&gt;</span> / home</a><nav aria-label="Main"><a href="#about">about</a><a href="#things">things</a><a href="#ocean">the ocean ↘</a></nav></header>
+    <main id="main">
+      <section class="intro"><div class="eyebrow" id="eyebrow"></div><h1 id="name"></h1><p class="lead" id="intro"></p><div class="links" id="links"></div></section>
+      <section class="ocean-section" id="ocean" aria-labelledby="ocean-title">
+        <div class="ocean-heading"><h2 id="ocean-title"><span class="dot"></span> A little ocean</h2><span class="small">no meetings down here.</span></div>
+        <div class="tank" id="tank"><iframe class="aquarium-frame" src="asciiquarium/index.html" title="asciiquarium — browser port of the original Perl aquarium" loading="eager"></iframe></div>
+      </section>
+      <div class="below"><section id="about"><div class="eyebrow">01 / THE HUMAN</div><h2>A bit about me.</h2><p id="about-copy"></p><p class="note"><span class="asterisk">✳</span><span id="note"></span></p></section><section id="things"><div class="eyebrow">02 / THE WORKBENCH</div><h2>Things taking shape.</h2><div id="projects"></div></section></div>
+    </main>
+    <footer><span>Made of curiosity & a few characters.</span><a href="asciiquarium/NOTICE.md" target="_blank" rel="noopener noreferrer">asciiquarium · source & credits ↗</a><span id="clock"></span></footer>
+  </div>
+</body>
+</html>

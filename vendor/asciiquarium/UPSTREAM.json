@@ -1,0 +1,8 @@
+{
+  "dependency": "Term-Animation-2.6",
+  "source": "https://robobunny.com/projects/asciiquarium/asciiquarium.tar.gz",
+  "dependency_archive_sha256": "7d5c3c2d4f9b657a8b1dce7f5e2cbbe02ada2e97c72f3a0304bf3c99d084b045",
+  "release": "Official asciiquarium 1.1 (2013-03-09)",
+  "sha256": "f3afa00cdcea5cc5e4f2c22ee987bc10eddc5f41a56ec4836ef3e4011999e65a",
+  "archive_sha256": "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
+}
